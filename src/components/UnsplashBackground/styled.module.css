@@ -1,0 +1,34 @@
+.styled-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  z-index: -5;
+}
+
+.bg-img{
+  max-width:100vw;
+  max-height:100vh;
+
+  flex: 1;
+  top: 0;
+
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.footer button {
+  background-color: transparent;
+
+  border: none;
+
+  height: 2rem;
+  padding: 0 2rem;
+}

@@ -1,0 +1,8 @@
+.content {
+  border: 1px solid red;
+  display: flex;
+  
+  height: 100vh;
+  /* grid-template-columns: minmax(1fr, 600px) minmax(1fr, 600px); */
+  color: white;
+}
