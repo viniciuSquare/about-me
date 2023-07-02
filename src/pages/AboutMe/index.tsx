@@ -1,5 +1,5 @@
 import profilePic from "@/assets/profile_image.jpg";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 import codeBG from "@/assets/code_bg.jpg";
 
@@ -23,7 +23,7 @@ export default function AboutMe() {
   return (
     <>
       <main className={styled.container}>
-        <div className={styled.header}>
+        <header className={styled.header}>
           <div className="social-links flex gap-4 mx-2">
             <div className="social-link ">
               <a href="https://github.com/viniciusquare" target="_blank">
@@ -37,20 +37,17 @@ export default function AboutMe() {
             </div>
           </div>
           <h1 className="py-2 pl-4 border-l-[1px] border-gray-300">Hello 👋</h1>
-        </div>
+        </header>
 
         {/* Background */}
-        <div className={styled["background-container"]}>
-          <Image src={codeBG} alt="Code background" />
-          <div className={styled["gradient-overlay"]}></div>
-        </div>
+        <Background src={codeBG} />
 
         <section id="greetings" className={styled.greetings}>
-          <div className={styled["profile-picture"]}>
+          <div className={styled["profile-picture"]} >
             <Image
-              src={profilePic}
+              src={ profilePic }
               alt="Vinícius Quadrado profile image"
-              className="rounded-full w-full h-full"
+              className="rounded-full"
             />
           </div>
 
@@ -64,12 +61,12 @@ export default function AboutMe() {
           </div>
 
           <div className={styled.technologies}>
-            <p className="flex justify-between col-span-full transition-opacity my-4 px-2">
+            <p className="flex justify-between col-span-full transition-opacity px-2">
               <span>Front-End</span> • <span>Back-End</span> •{" "}
               <span>DevOps</span>
             </p>
 
-            <div className="icons">
+            <div className={styled['icons-row']}>
               <div className={styled.icon}>
                 <FileJs />
               </div>
@@ -99,7 +96,7 @@ export default function AboutMe() {
         </section>
 
         {/* TIMELINE */}
-        <section id="timeline" className="relative h-screen">
+        <section id="timeline" className={styled.timeline}>
           <div className={styled.separator}></div>
           <div className={styled["timeline-row"]}>
             {/* MAKE THE TITLE TAKE AL COLUMNS */}
@@ -108,23 +105,56 @@ export default function AboutMe() {
             <div className={styled["col-content-wrapper"]}>
               <div className={styled.col}>
                 <p>
-                  I'm 22 years old, living in Paraná, Brazil. I like to enjoy
-                  the nature, play basketball, listen to music and to code.
+                  <strong>I'm 22 years old, living in Paraná, Brazil. </strong>
+                  <br /><br />
+                  I like to enjoy the nature, play basketball, listen to music and to code.
+                  <br /><br />
+                  Developer, passionate about coding and solving problems using the latest tools and technologies.
+                  <br /><br />
                 </p>
               </div>
+
+              <div className={styled["col-separator-dot"]}></div>
+
               <div className={styled.col}>
                 <p>
-                  Developer, passionate about coding and solving problems using
-                  the latest tools and technologies.
+                  I started my experience programming on college with C++ and Java Object Oriented Programming. 
+                  <br/><br/>
+                  Soon I noticed the need to study outside college to be able to implement ideas. 
+                  <br /><br />That's when I found Rocketseat, a tech community school on YouTube, and enjoyed the Web Development, first workshop with node JS, then with ReactJS.
                 </p>
               </div>
             </div>
           </div>
+
           <div className={styled["timeline-row"]}>
             {/* MAKE THE TITLE TAKE AL COLUMNS */}
-            <h2 className={styled["row-title"] + " text-end"}>Soft Skills</h2>
+            <h2 className={styled["row-title"]}>The road so far</h2>
             <div className={styled["col-content-wrapper"]}>
               <div className={styled.col}>
+                <p>
+                  2022 I started my journey as software developer, working with laravel and Angular on core projects and learning about DevOps and monitoring building Grafana dashboards.
+                </p>
+              </div>
+              <div className={styled["col-separator-dot"]}></div>
+              <div className={styled.col}>
+                <p>
+                  More then a software developer, I work with infrastructure and team metrics, create API to process data and Grafana dashboards to management and monitoring.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className={styled["timeline-row"]}>
+            {/* MAKE THE TITLE TAKE AL COLUMNS */}
+            <h2 className={styled["row-title"]}>Soft Skills</h2>
+            <div className={styled["col-content-wrapper"]}>
+              <div className={styled.col}>
+                <ul className="font-bold mb-8">
+                  <li className="flex gap-2">• <p>Clear communication, aways willing to share;</p></li>
+                  <li className="flex gap-2">• <p>Analytic/problem solve thinking;</p></li>
+                  <li className="flex gap-2">• <p>The <strong> goal to build a developer career</strong>, bringing value with technologic solutions.</p></li>
+                </ul>
                 <div className={styled["icons-row"]}>
                   <div className={styled.icon}>
                     <Brain />
@@ -140,12 +170,6 @@ export default function AboutMe() {
               <div className={styled["col-separator-dot"]}></div>
               <div className={styled.col}>
                 <p>
-                  Clear communication, aways willing to share.
-                  <br />
-                  <br />
-                  Analytic/problem solve thinking,
-                  <br />
-                  <br />
                   Use of agile methodologies SCRUM at professional/personal
                   projects to better planning/implement solutions.
                   <br />
@@ -156,6 +180,7 @@ export default function AboutMe() {
               </div>
             </div>
           </div>
+
           <div className={styled["timeline-row"]}>
             {/* MAKE THE TITLE TAKE AL COLUMNS */}
             <h2 className={styled["row-title"]}>Hard Skills</h2>
@@ -168,15 +193,30 @@ export default function AboutMe() {
               </div>
               <div className={styled["col-separator-dot"]}></div>
               <div className={styled["col"]}>
-                <div className={styled["icons-row"]}>
+                <div className={styled['icons-row'] + " grid-cols-4"}>
                   <div className={styled.icon}>
-                    <Brain />
+                    <FileJs />
                   </div>
                   <div className={styled.icon}>
-                    <UsersThree />
+                    <FigmaLogo />
                   </div>
                   <div className={styled.icon}>
-                    <Kanban />
+                    <FileSql />{" "}
+                  </div>
+                  <div className={styled.icon}>
+                    <AngularLogo />
+                  </div>
+                  <div className={styled.icon}>
+                    <FileHtml />
+                  </div>
+                  <div className={styled.icon}>
+                    <Atom />
+                  </div>
+                  <div className={styled.icon}>
+                    <GithubLogo />
+                  </div>
+                  <div className={styled.icon}>
+                    <Browsers />
                   </div>
                 </div>
               </div>
@@ -187,5 +227,38 @@ export default function AboutMe() {
         <button className={styled.contactButton}>View Contact Card</button>
       </main>
     </>
+  );
+}
+
+interface BackgroundProps {
+  src: string | StaticImageData;
+}
+
+function Background(props: BackgroundProps) {
+  return (
+    <div className={styled["background-container"]}>
+      <Image src={props.src} alt="Code background" />
+
+      <div className={styled["gradient-overlay"]}></div>
+    </div>
+  );
+}
+
+function LevelIndicator() {}
+
+interface ProgressBarProps {
+  label: string;
+  percentage: number;
+}
+
+function ProgressBar(props: ProgressBarProps) {
+  return (
+    <div>
+      <label>{props.label}</label>
+      <div className={styled.progressBar}>
+        <div className="bar"></div>
+        <div className={"progress" + `w-[${props.percentage}%]`}></div>l
+      </div>
+    </div>
   );
 }

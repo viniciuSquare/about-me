@@ -11,7 +11,7 @@
 }
 
 @mixin l_devices() {
-  @media (min-width: 992px) {
+  @media (min-width: 799px) {
     @content;    
   }
 }
